@@ -11,7 +11,7 @@ const App = createStackNavigator();
 const AppRoutes: React.FC = () => (
   <App.Navigator
     screenOptions={{
-      // headerShown: false,
+      headerShown: false,
       cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
       cardStyle: {
         backgroundColor: '#312e38',

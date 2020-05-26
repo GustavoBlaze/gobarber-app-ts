@@ -22,6 +22,8 @@ import Button from '../../components/Button';
 
 import logoImg from '../../assets/logo.png';
 
+import api from '../../services/api';
+
 import { Container, Title, BackToSignIn, BackToSignInText } from './styles';
 
 interface SignUpFormData {
@@ -51,7 +53,13 @@ const SignUp: React.FC = () => {
 
       await schema.validate(data, { abortEarly: false });
 
-      // await api.post('users', data);
+      await api.post('users', data);
+
+      Alert.alert(
+        'Cadastro realizado!',
+        'Você já pode fazer logon no GoBarber!',
+      );
+      navigation.goBack();
     } catch (err) {
       if (err instanceof Yup.ValidationError) {
         const errors = getValidationErrors(err);
